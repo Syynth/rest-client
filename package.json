@@ -1,5 +1,5 @@
 {
-  "name": "Rest Client",
+  "name": "rest-client",
   "main": "./lib/rest-client",
   "version": "0.0.0",
   "description": "A short description of your package",
@@ -10,5 +10,6 @@
     "atom": ">0.50.0"
   },
   "dependencies": {
+    "underscore-plus": "1.x"
   }
 }

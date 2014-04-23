@@ -1,4 +1,5 @@
 {View, $$} = require 'atom'
+LineItemView = require './line-item-view'
 
 module.exports =
 class HeadersView extends View
@@ -13,9 +14,7 @@ class HeadersView extends View
 
   addHeader: ->
     l = @list.find('li').length
-    @list.append $$ ->
-      @li =>
-        @text "Header Param #{++l}"
+    @list.append new LineItemView()
 
   removeHeader: ->
     @list.find('li').last()?.detach()

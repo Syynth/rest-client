@@ -19,14 +19,32 @@
     .headers {
       width: 290px;
       padding: 5px;
-      min-height: 50px;
-      background-color: #ffffff;
+      min-height: 100px;
+      max-height: 250px;
+      overflow-y: scroll;
+      background-color: @inset-panel-background-color;
       border-radius: 3px;
-      border: solid 1px #3c3c3c;
+      border: solid 1px @inset-panel-border-color;
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        padding: 1px 0 1px 0;
+        border-bottom: solid 1px #ddd;
+        line-height: 25px;
+      }
+
+      input {
+        display: inline-block;
+        width: 45%;
+      }
     }
 
     button {
-      
+
     }
   }
 

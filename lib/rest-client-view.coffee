@@ -21,11 +21,11 @@ class RestClientView extends View
         @hr()
         @div =>
           @span 'Host/Port:'
-          @input {type: 'text', class: 'right'}
+          @input {type: 'text', class: 'right native-key-bindings'}
         @hr()
         @div =>
           @span 'Path:'
-          @input {type: 'text', class: 'right'}
+          @input {type: 'text', class: 'right native-key-bindings'}
         @hr()
         @div =>
           @h4 'Headers'
