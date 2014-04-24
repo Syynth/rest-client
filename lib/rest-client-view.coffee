@@ -1,5 +1,5 @@
 {View} = require 'atom'
-HeadersView = require './headers-view'
+PairedDataView = require './paired-data-view'
 
 module.exports =
 class RestClientView extends View
@@ -29,11 +29,11 @@ class RestClientView extends View
         @hr()
         @div =>
           @h4 'Headers'
-          @subview 'headers', new HeadersView()
+          @subview 'headers', new PairedDataView()
         @hr()
         @div =>
           @h4 'Params'
-          @textarea()
+          @subview 'params', new PairedDataView()
         @hr()
         @div =>
           @button {click: 'sendRequest', class: 'right'}, 'Send'

@@ -2,22 +2,25 @@
 LineItemView = require './line-item-view'
 
 module.exports =
-class HeadersView extends View
+class PairedDataView extends View
 
   @content: ->
-    @div {class: 'headers-view'}, =>
+    @div {class: 'paired-data-view'}, =>
       @div {class: 'headers'}, =>
         @ul {outlet: 'list'}
-      @button {click: 'addHeader'}, '+'
-      @button {click: 'removeHeader'}, '-'
+      @button {click: 'addPair'}, '+'
+      @button {click: 'removePair'}, '-'
 
 
-  addHeader: ->
+  addPair: ->
     l = @list.find('li').length
-    @list.append new LineItemView()
+    @list.append new LineItemView(null, this)
 
-  removeHeader: ->
+  removePair: ->
     @list.find('li').last()?.detach()
+
+  removeLineItem: (view) ->
+    view.detach()
 
   initialize: (serializeState) ->
 

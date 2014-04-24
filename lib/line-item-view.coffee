@@ -10,9 +10,11 @@ class LineItemView extends View
         @input {type: 'text', placeholder: 'Name', outlet: 'name', tabindex: '1'}
         @input {type: 'text', placeholder: 'Value', class: 'right', outlet: 'value', tabindex: '2'}
       @div {outlet: 'preview', click: 'showEdit'}, =>
-        @text ' -- : -- '
+        @span {outlet: 'previewText'}, ' -- : -- '
+        @span {class: 'delete-line-item right', click: 'destroy'}, 'X'
 
-  initialize: (serializedState) ->
+  initialize: (serializedState, parent) ->
+    @parent = parent
     @preview.hide()
     window.debugLineItem = this
     @value.on 'keypress', (e) =>
@@ -28,7 +30,10 @@ class LineItemView extends View
 
   hideEdit: ->
     @preview.show()
-    @preview.text "#{@name.val()}:#{@value.val()}"
+    @previewText.text "#{@name.val()}:#{@value.val()}"
     @inputs.hide()
+
+  destroy: ->
+    @parent.removeLineItem(this)
 
   serialize: ->
